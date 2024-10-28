@@ -46,7 +46,7 @@ class EsolangInterpreter:
         elif token == "P":
             self.program_counter += 1 
             index_to_copy = int(self.tokens[self.program_counter])   
-            self.memory[self.ptr] = self.memory[self.program_counter]                      
+            self.memory[self.ptr] = self.memory[index_to_copy]                      
         elif token == "+":
             self.memory[self.ptr] = (self.memory[self.ptr] + 1) & ((1 << 64) - 1)  # 64-bit signed
         elif token == "-":
@@ -57,16 +57,7 @@ class EsolangInterpreter:
         elif token == "o":
             sys.stdout.write(str(self.memory[self.ptr]))
             sys.stdout.flush()
-        elif token == "'":
-            # Expect the next token to be a character
-            self.program_counter += 1
-            char_token = self.tokens[self.program_counter]
-            if len(char_token) == 1:
-                self.memory[self.ptr] = ord(char_token)
-            else:
-                self.error(f"Expected a character after ' but got {char_token}")
         elif token == "?":
-            
             self.program_counter += 1  
             condition_value = int(self.tokens[self.program_counter])  #
             if self.memory[self.ptr] != condition_value:
@@ -90,10 +81,17 @@ class EsolangInterpreter:
         elif token == "x":
             self.running = False
         elif token == "t":
-            while self.program_counter < len(self.tokens) and self.tokens[self.program_counter] != "]":
+            self.tstack = []
+            while  True:
+                if self.program_counter >= len(self.tokens): raise IndexError("program counter is bigger than tokens perhabs you forgot ] while stopping a loop ?")
+                elif self.tokens[self.program_counter] == "]":
+                    if len(self.tstack) > 0:
+                        self.stack.pop()
+                        self.tstack.pop()
+                    else: break
+                elif self.tokens[self.program_counter] == "[":self.tstack.append(1)        
                 self.program_counter += 1
-            if self.tokens[self.program_counter] == "]":
-                self.stack.pop()  
+ 
         elif token == " ": pass
         elif token == "\n": pass
         elif token == "l": 
@@ -115,7 +113,7 @@ if __name__ == "__main__":
         sys.exit(1)
     filename = sys.argv[1]
     with open(filename, 'r') as file:
-        code = file.read()
+        code = file.read()  
     interpreter = EsolangInterpreter()
     interpreter.initialize_memory(2**16)
     interpreter.run(code)
