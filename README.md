@@ -3,6 +3,9 @@
 **Disclaimer:**  
 _This interpreter is still in development and may contain bugs please report any bugs you found._
 
+### Proof of Turing Completeness
+any bf code can be translated to Ecliptica using `bf-to-ec.py` BUT ecliptica uses 64 bit signed integers so any bf program cant work unless it written to be compatible with that  
+
 ### Commands
 - **`0-9`**: Any number written will be set to the current cell.
 - **`''`**: Any char written inside '' will set to the current cell not as string as ascii value. 
@@ -31,3 +34,4 @@ _This interpreter is still in development and may contain bugs please report any
 ### Input/Output
 - The `i` command allows the user to input a string, which is converted into ASCII values and stored in memory.
 - The `O` and `o` commands output the value at the memory pointer, either as a character or a number, respectively.
+   
