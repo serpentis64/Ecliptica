@@ -4,14 +4,13 @@
 _This interpreter is still in development and may contain bugs please report any bugs you found._
 
 ### Commands
-- **`[0-9]+`**: A sequence of digits representing a number. The number is stored in the memory at the pointer.
+- **`0-9`**: Any number written will be set to the current cell.
 - **`>`**: Move the memory pointer to the right (increment the pointer).
 - **`<`**: Move the memory pointer to the left (decrement the pointer).
 - **`+`**: Increment the value at the current memory pointer.
 - **`-`**: Decrement the value at the current memory pointer.
 - **`O`**: Output the value at the current memory pointer as a character.
 - **`o`**: Output the value at the current memory pointer as a number.
-- **`'`**: Store the ASCII value of the next character into the memory.
 - **`?`**: Conditional check. If the value at the current memory pointer does not equal the next token (an integer), skip to the next `)`.
 - **`[`**: Start a loop. Push the current program counter onto the stack.
 - **`]`**: End a loop. Return to the beginning of the loop if the value at the current memory pointer is not zero.
