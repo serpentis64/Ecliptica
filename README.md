@@ -35,4 +35,11 @@ any bf code can be translated to Ecliptica using `bf-to-ec.py` BUT ecliptica use
 ### Input/Output
 - The `i` command allows the user to input a string, which is converted into ASCII values and stored in memory.
 - The `O` and `o` commands output the value at the memory pointer, either as a character or a number, respectively.
+
+
+### Todo
+ - optimize the code performance is awfull
+
+
+pypy is recommended because interpreter is  slow
    
