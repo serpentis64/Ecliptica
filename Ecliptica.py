@@ -52,11 +52,20 @@ class EsolangInterpreter:
         elif token == "-":
             self.memory[self.ptr] = (self.memory[self.ptr] - 1) & ((1 << 64) - 1)
         elif token == "O":
+
             sys.stdout.write(chr(self.memory[self.ptr]))
             sys.stdout.flush()
         elif token == "o":
             sys.stdout.write(str(self.memory[self.ptr]))
             sys.stdout.flush()
+        elif token == "'":
+            # Expect the next token to be a character
+            self.program_counter += 1
+            char_token = self.tokens[self.program_counter]
+            self.program_counter += 1 
+            if self.tokens[self.program_counter] != '\'': self.error("' is not closed tokens caused error: " + '\'' + char_token + self.tokens[self.program_counter])
+            else:
+                self.memory[self.ptr] = ord(char_token)
         elif token == "?":
             self.program_counter += 1  
             condition_value = int(self.tokens[self.program_counter])  #
@@ -70,6 +79,7 @@ class EsolangInterpreter:
             self.program_counter = start_loop - 1  
         elif token == "n":
             if self.memory[self.ptr] < 0:
+                
                 self.memory[self.ptr] = 0
             else:  self.memory[self.ptr] = 1    
         elif token == "i":
@@ -86,9 +96,10 @@ class EsolangInterpreter:
                 if self.program_counter >= len(self.tokens): raise IndexError("program counter is bigger than tokens perhabs you forgot ] while stopping a loop ?")
                 elif self.tokens[self.program_counter] == "]":
                     if len(self.tstack) > 0:
-                        self.stack.pop()
                         self.tstack.pop()
-                    else: break
+                    else:
+                        self.stack.pop()
+                        break
                 elif self.tokens[self.program_counter] == "[":self.tstack.append(1)        
                 self.program_counter += 1
  
@@ -115,5 +126,5 @@ if __name__ == "__main__":
     with open(filename, 'r') as file:
         code = file.read()  
     interpreter = EsolangInterpreter()
-    interpreter.initialize_memory(2**16)
+    interpreter.initialize_memory(65535)
     interpreter.run(code)
