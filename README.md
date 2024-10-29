@@ -5,7 +5,7 @@ _This interpreter is still in development and may contain bugs please report any
 
 ### Commands
 - **`0-9`**: Any number written will be set to the current cell.
-- **`''`**: Any char written inside '' ascii will set to the current cell.
+- **`''`**: Any char written inside '' will set to the current cell not as string as ascii value. 
 - **`>`**: Move the memory pointer to the right (increment the pointer).
 - **`<`**: Move the memory pointer to the left (decrement the pointer).
 - **`+`**: Increment the value at the current memory pointer.
