@@ -8,7 +8,8 @@ any bf code can be translated to Ecliptica using `bf-to-ec.py` BUT ecliptica use
 
 ### Commands
 - **`0-9`**: Any number written will be set to the current cell.
-- **`''`**: Any char written inside '' will set to the current cell not as string as ascii value. 
+- **`''`**: Any char written inside '' will set to the current cell not as string as ascii value.
+- **`/ /`**: / / considered comment comments must be inside /comment/ also comments are making code readable but in exchange slows the code by a fucking lot if you use comment inside a comment 
 - **`>`**: Move the memory pointer to the right (increment the pointer).
 - **`<`**: Move the memory pointer to the left (decrement the pointer).
 - **`+`**: Increment the value at the current memory pointer.
