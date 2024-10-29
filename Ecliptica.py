@@ -90,6 +90,12 @@ class EsolangInterpreter:
                 self.memory[self.ptr] = self.input_stack.pop()
         elif token == "x":
             self.running = False
+        elif token == "/":
+            self.program_counter += 1
+            while True:
+                if self.tokens[self.program_counter] == "/": break
+                self.program_counter += 1
+
         elif token == "t":
             self.tstack = []
             while  True:
