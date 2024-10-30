@@ -117,7 +117,7 @@ int main() {
         elif token == ">":
             c_code += "\n    ptr += 1;"
         elif token == "<":
-            c_code += "\n    ptr -= 1;\n    " # if (ptr < 0) { printf(\"Error: ptr can't be negative\"); return 0; }
+            c_code += "\n    ptr -= 1;\n   if (ptr < 0) { printf(\"Error: ptr can't be negative\"); return 0; }"
         elif token == "o":
             c_code += "\n    printf(\"%d\", memory[ptr]);"
         elif token == "O":
