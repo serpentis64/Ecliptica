@@ -42,4 +42,10 @@ any bf code can be translated to Ecliptica using `bf-to-ec.py` BUT ecliptica use
 
 
 pypy is recommended because interpreter is  slow
+
+
+also i made an ecliptica to c compiler but its dogshit i wouldnt recommend it but works i guess
+
+this is a valid code in it 
+0if0(]
    
