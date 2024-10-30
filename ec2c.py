@@ -160,7 +160,7 @@ int main() {
 if __name__ == "__main__":
     import sys
     import os
-    print("warning! this compiler made like shit dont use it its buggy as hell and code will not work %60 of the time atleast yapi works :D ")
+    print("warning! this compiler made like dog shit dont use it its buggy as hell and code will not work %60 of the time atleast yapi works :D ")
     if len(sys.argv) < 2:
         print("Usage: python script.py <filename>")
         sys.exit(1)
