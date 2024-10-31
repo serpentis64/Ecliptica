@@ -77,7 +77,7 @@ void read_input() {
 }
 
 int get_input_length() {
-    return input_length;
+    return input_length-1;
 }
 
 int buffered_getchar() {
