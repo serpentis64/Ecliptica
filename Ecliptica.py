@@ -85,10 +85,7 @@ class EclipticaInterpreter:
         elif token == "i":
             if not self.input_stack:
                 user_input = input()
-                user_input = user_input[::-1]
-                self.input_stack.append(10)
-                for c in user_input:
-                    self.input_stack.append(ord(c))
+                self.input_stack = list(reversed([ord(c) for c in user_input]))
             if self.input_stack:
                 self.memory[self.ptr] = self.input_stack.pop()
         elif token == "x":
