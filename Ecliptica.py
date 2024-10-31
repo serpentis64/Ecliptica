@@ -1,7 +1,7 @@
 import re
 import sys
 import random
-class EclipticaInterpreter:
+class EsolangInterpreter:
     def __init__(self):
         self.memory = []
         self.ptr = 0  
@@ -114,11 +114,11 @@ class EclipticaInterpreter:
         elif token == "l": 
             self.memory[self.ptr] = len(self.input_stack)
         elif token == "r":
-           a = random.randint(-10, 20)
-           b = random.randint(-10, 20)
+           a = random.randint(0, 20)
+           b = random.randint(0, 20)
            if a > b:
-            self.memory[self.ptr] += random.randint(1, 5)  
-           else:  self.memory[self.ptr] -= random.randint(1, 5)              
+            self.memory[self.ptr] += 1 
+           else:  pass             
         elif token == ")": pass
         elif token == "(":pass
         else:
@@ -131,6 +131,6 @@ if __name__ == "__main__":
     filename = sys.argv[1]
     with open(filename, 'r') as file:
         code = file.read()  
-    interpreter = EclipticaInterpreter()
+    interpreter = EsolangInterpreter()
     interpreter.initialize_memory(65535)
     interpreter.run(code)
