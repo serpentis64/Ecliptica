@@ -16,24 +16,23 @@ any bf code can be translated to Ecliptica using `bf-to-ec.py` BUT ecliptica use
 - **`-`**: Decrement the value at the current memory pointer.
 - **`O`**: Output the value at the current memory pointer as a character.
 - **`o`**: Output the value at the current memory pointer as a number.
-- **`?`**: Conditional check. If the value at the current memory pointer does not equal the next token (an integer), skip to the next `)`.
+- **`? x ()`**: Conditional check. If the value at the current memory pointer does equal to x cant use 'char' if equal to x execute code in ().
 - **`[`**: Start a loop. Push the current program counter onto the stack.
-- **`]`**: End a loop. Return to the beginning of the loop if the value at the current memory pointer is not zero.
-- **`p`**: Copy the value at the pointer to another memory location (specified by the next token).
-- **`P`**: Copy the value from another memory location (specified by the next token) to the pointer.
+- **`]`**: End a loop. Return to the beginning of the loop.
+- **`p x`**: Copy the value at the pointer to another memory location(specified by the x must be an int) .
+- **`P x`**: Copy the value from another memory location (specified by x must be an int) to the pointer.
 - **`n`**: Normalize the value at the pointer (set to `0` if negative, `1` if non-negative).
 - **`i`**: Take user input and store it in the memory as ASCII values.
 - **`x`**: Exit the program.
-- **`t`**: Exit a loop prematurely (break out of nested loops).
+- **`t`**: Exit a loop.
 - **`l`**: Store the length of the input stack at the current memory location.
 - **`r`**: Perform a random operation by comparing two random numbers. If the first is larger, increase the value at the pointer. If not, decrease it.
 
 ### Control Flow
-- Loops are enclosed between `[` and `]`. If the value at the pointer is zero when reaching `]`, the program skips back to `[`.
+- Loops are enclosed between `[` and `]`. and they are unconditional
 - The `?` token allows conditional execution, skipping to the next `)` if the condition is not met.
-- 
 ### Input/Output
-- The `i` command allows the user to input a string, which is converted into ASCII values and stored in memory.
+- The `i` command allows the user to input a string, which is converted into ASCII values and stored in input stack when ever used pops from stack and puts in current cell.
 - The `O` and `o` commands output the value at the memory pointer, either as a character or a number, respectively.
 
 
