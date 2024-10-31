@@ -26,7 +26,7 @@ any bf code can be translated to Ecliptica using `bf-to-ec.py` BUT ecliptica use
 - **`x`**: Exit the program.
 - **`t`**: Exit a loop.
 - **`l`**: Store the length of the input stack at the current memory location.
-- **`r`**: Perform a random operation by comparing two random numbers. If the first is larger, increase the value at the pointer. If not, decrease it.
+- **`r`**: adds 1 or 0 randomly to current memory cell;
 
 ### Control Flow
 - Loops are enclosed between `[` and `]`. and they are unconditional
