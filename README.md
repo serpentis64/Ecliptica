@@ -45,7 +45,6 @@ pypy is recommended because interpreter is  slow
 
 
 also i made an ecliptica to c compiler but its dogshit i wouldnt recommend it but works i guess except for comments dont use comments when compiling
-
-this is a valid code in it 
-0if0(]
+also this is a valid code in it 
+0?0(]
    
