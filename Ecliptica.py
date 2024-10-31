@@ -1,7 +1,7 @@
 import re
 import sys
 import random
-class EsolangInterpreter:
+class EclipticaInterpreter:
     def __init__(self):
         self.memory = []
         self.ptr = 0  
@@ -131,6 +131,6 @@ if __name__ == "__main__":
     filename = sys.argv[1]
     with open(filename, 'r') as file:
         code = file.read()  
-    interpreter = EsolangInterpreter()
+    interpreter = EclipticaInterpreter()
     interpreter.initialize_memory(65535)
     interpreter.run(code)
