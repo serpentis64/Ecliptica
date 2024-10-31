@@ -53,7 +53,6 @@ def ec_to_c(code):
     # also this whole shit almost driving me to crazy 
     # fuck c 
     # fuck ecliptica
-    # AND FUCK İO
     c_code = """ 
 #include <stdio.h>
 #include <stdlib.h>
@@ -68,13 +67,13 @@ void read_input() {
     input_length = 0;
 
     while (input_length < MAX_INPUT_SIZE - 1 && (ch = getchar()) != EOF) {
-        input_buffer[input_length++] = (char)ch;
         if (ch == '\\n') {
             break;
         }
+        input_buffer[input_length++] = (char)ch;
     }
 
-    input_buffer[input_length] = '\\0';
+    input_buffer[input_length] = '\\0'; // Null-terminate the string
 }
 
 int get_input_length() {
@@ -94,6 +93,8 @@ int buffered_getchar() {
     
     return buffered_getchar();
 }
+
+
 
 int main() {
     
@@ -117,7 +118,7 @@ int main() {
         elif token == ">":
             c_code += "\n    ptr += 1;"
         elif token == "<":
-            c_code += "\n    ptr -= 1;\n   if (ptr < 0) { printf(\"Error: ptr can't be negative\"); return 0; }"
+            c_code += "\n    ptr -= 1;\n    " # if (ptr < 0) { printf(\"Error: ptr can't be negative\"); return 0; }
         elif token == "o":
             c_code += "\n    printf(\"%d\", memory[ptr]);"
         elif token == "O":
@@ -160,7 +161,7 @@ int main() {
 if __name__ == "__main__":
     import sys
     import os
-    print("warning! this compiler made like dog shit dont use it its buggy as hell and code will not work %60 of the time atleast yapi works :D ")
+    print("warning! this compiler made like shit dont use it its buggy as hell and code will not work %60 of the time atleast yapi works :D ")
     if len(sys.argv) < 2:
         print("Usage: python script.py <filename>")
         sys.exit(1)
