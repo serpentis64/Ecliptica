@@ -153,7 +153,9 @@ int main() {
         elif token == "i":
             c_code += """\n    ch = buffered_getchar();memory[ptr] = ch;"""
         elif token == "n":
-            c_code += """\n    if(memory[ptr]<0){memory[ptr]=0;}else{memory[ptr]=1;}"""            
+            c_code += """\n    if(memory[ptr]<0){memory[ptr]=0;}else{memory[ptr]=1;}"""
+        elif token == 'r':
+            c_code += """\n    if(rand() % 20 > rand() % 20){memory[ptr] = memory[ptr] + 1;} """
         i += 1
 
     c_code += "\n    return 0;\n}"
