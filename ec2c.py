@@ -53,6 +53,7 @@ def ec_to_c(code):
     # also this whole shit almost driving me to crazy 
     # fuck c 
     # fuck ecliptica
+    # AND FUCK İO
     c_code = """ 
 #include <stdio.h>
 #include <stdlib.h>
